@@ -1,0 +1,97 @@
+ <div>
+         <a [routerLink]="['/adduser']">Add_User   </a>
+		<a [routerLink]="['/addtask']">   Add_Task    </a>
+		<a [routerLink]="['/home']">   View_Task  </a>
+		<a [routerLink]="['/addproject']">     Add_Project</a>
+	  
+</div>
+
+        
+<h1 class="text-center">Add Task</h1>
+<form>
+    <div class="form">
+      <div class="form-group col-md-6">
+        <label for="firstname">First Name</label>
+        <input type="text" #firstname class="form-control" id="firstname" >
+      </div>
+      
+      <div class="form-group col-md-6">
+          <label for="lastname">Last Name</label>
+          <input type="text" #lastname class="form-control" id="lastname">
+      </div> 
+  
+      <div class="form-group col-md-6">
+          <label for="employeeid">Employee ID</label>
+          <input type="text" #employeeid class="form-control" id="employeeid">
+      </div> 
+  
+       
+    </div>
+      <button type="button" class="btn btn-success" onClick="window.location.reload();"  
+      onClick="window.location.reload()" [routerLink]="['/home']"
+      (click)="adduser(firstname.value,lastname.value,employeeid.value)">Add</button> 
+	  
+      <button type="reset" class="btn btn-warning" value=" Reset">Reset</button>
+    
+
+  
+  </form>
+<hr>
+<br>
+<hr>
+
+
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" #search1 (keyup)="0" class="form-control" placeholder="Search.">
+    </div>
+    <div class="col">
+		<label for="sort">Sort  : </label>
+      <button type="button" class="btn btn-info">First Name</button>
+	  <button type="button" class="btn btn-info">Last Name</button>
+	   <button type="button" class="btn btn-info">Id</button>
+    </div>
+	
+  </div>
+  <br>
+     
+</form>
+<br>
+
+
+<div class="row">
+
+  <table class="table ">
+  <thead class="thead-dark">
+  <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Employee ID</th>
+      
+      <th scope="col"> </th>
+      <th scope="col"> </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let user of users | userfirst:search1.value ; let i=index"  >
+
+  <td>{{user.firstname}}</td>
+  <td>{{user.lastname}}</td>
+  <td>{{user.employeeid}}</td> 
+  
+  <td>
+
+	 <button type="button" class="btn btn-dark"   
+      (click)="updateuser(user._id)" >Update</button>
+	  
+ 
+    <button type="button" class="btn btn-danger"  onClick="window.location.reload()"
+     (click)="deleteuser(user.firstname)">Delete</button>
+
+	 </td>
+  </tr>
+  </tbody>
+  </table>
+</div>

@@ -1,0 +1,86 @@
+<div>
+      <a [routerLink]="['/addproject']">Add Project</a>
+	  <a [routerLink]="['/addtask']">  Add Task</a>
+	  <a [routerLink]="['/']">  View Task</a>
+	  <a [routerLink]="['/adduser']">  Add User</a>
+</div>
+  
+
+<div class="container">
+
+
+      <router-outlet></router-outlet>
+
+<h2 class="text-center">Task Manager</h2>
+
+
+
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" #search1 (keyup)="0" class="form-control" placeholder="Task name">
+    </div>
+    <div class="col">
+      <input type="text" #search2 (keyup)="0" class="form-control" placeholder="Parent name">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <input type="text" #search3 (keyup)="0" class="form-control" placeholder="Priority From">
+    </div>
+	<div class="col">
+      <input type="text" #search6 (keyup)="0" class="form-control" placeholder="Priority To">
+    </div>
+    <div class="col">
+      <input type="text" #search4 (keyup)="0" class="form-control" placeholder="Start Date">
+    </div>
+	<div class="col">
+      <input type="text" #search5 (keyup)="0" class="form-control" placeholder="End Date">
+    </div>
+  </div>
+</form>
+<br>
+
+
+<div class="row">
+
+  <table class="table ">
+  <thead class="thead-light">
+  <tr>
+      <th scope="col">Task Name</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Parent Task</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col"> </th>
+      <th scope="col"> </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let state of states | searchTask:search1.value | searchStartDate:search4.value | searchParent:search2.value | 
+  searchEndDate:search5.value | searchPriorityFrom:search3.value | searchPriorityTo:search6.value
+  ; let i=index"  >
+
+  <td>{{state.taskname}}</td>
+  <td>{{state.priority}}</td>
+  <td>{{state.parenttask}}</td> 
+  <td>{{state.startdate}}</td>
+  <td>{{state.enddate}}</td>
+  <td>
+
+	 <button type="button" class="btn btn-dark"  [disabled]="!state.state" 
+      [routerLink]="['/updatetask']"  >UPDATE</button></td>
+	  
+  <td>
+    <button type="button" class="btn btn-success"  onClick="window.location.reload()"
+     (click)="endtask(state.taskname,state.priority,state.parenttask,state.startdate,state.enddate)">END</button>
+
+	 </td>
+  </tr>
+  </tbody>
+  </table>
+</div>
+</div>
+
