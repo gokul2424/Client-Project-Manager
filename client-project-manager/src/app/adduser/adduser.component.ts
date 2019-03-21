@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input, EventEmitter, OnDestroy, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
@@ -11,7 +12,8 @@ export class AdduserComponent implements OnInit {
 
 
  users:Array<Object>=[];
- 
+  path: string[] = ['user'];
+  order: number = 1; // 1 asc, -1 desc;
   @Input('firstname') firstname:string=' ';
   @Input('lastname') lastname:string=' ';
   @Input('employeeid') priority:number=0;
@@ -58,7 +60,11 @@ updateuser(_id:string)
   this.router.navigate(['updateuser/'+_id])
        
  }
-              
+    sortTable(prop: string) {
+    this.path = prop.split('.')
+    this.order = this.order * (-1); // change order
+    return false; // do not reload
+  }          
   
   ngOnInit() {
 	  

@@ -13,6 +13,8 @@ export class HomeComponent{
 
   states:Array <Object>=[];
   
+  path: string[] = ['user'];
+  order: number = 1; // 1 asc, -1 desc;
   @Input('taskname') taskname:string=' ';
   @Input('priority') priority:number=0;
   @Input('parenttask') parenttask:string=' ';
@@ -35,7 +37,11 @@ ngOnInit()
 		})
 
 }
-
+sortTable(prop: string) {
+    this.path = prop.split('.')
+    this.order = this.order * (-1); // change order
+    return false; // do not reload
+  }
 
 endtask(taskname:string,priority:number,parenttask:string,startdate:string,enddate:string)
 {

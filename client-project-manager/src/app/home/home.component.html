@@ -11,7 +11,7 @@
 
       <router-outlet></router-outlet>
 
-<h2 class="text-center">Task Manager</h2>
+<h2 class="text-center">Project Manager</h2>
 
 
 
@@ -22,24 +22,15 @@
       <input type="text" #search1 (keyup)="0" class="form-control" placeholder="Task name">
     </div>
     <div class="col">
-      <input type="text" #search2 (keyup)="0" class="form-control" placeholder="Parent name">
+		<label for="sort">Sort  : </label>
+      <button><a href (click)="sortTable('startdate')"> Start Date</a></button>
+	  <button><a href (click)="sortTable('enddate')"> End Date</a></button>
+	  <button><a href (click)="sortTable('priority')"> Priority</a></button>
+	  <button><a href (click)="sortTable('state')">Completed</a></button>
     </div>
   </div>
   <br>
-  <div class="row">
-    <div class="col">
-      <input type="text" #search3 (keyup)="0" class="form-control" placeholder="Priority From">
-    </div>
-	<div class="col">
-      <input type="text" #search6 (keyup)="0" class="form-control" placeholder="Priority To">
-    </div>
-    <div class="col">
-      <input type="text" #search4 (keyup)="0" class="form-control" placeholder="Start Date">
-    </div>
-	<div class="col">
-      <input type="text" #search5 (keyup)="0" class="form-control" placeholder="End Date">
-    </div>
-  </div>
+  
 </form>
 <br>
 
@@ -59,8 +50,7 @@
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let state of states | searchTask:search1.value | searchStartDate:search4.value | searchParent:search2.value | 
-  searchEndDate:search5.value | searchPriorityFrom:search3.value | searchPriorityTo:search6.value
+  <tr *ngFor="let state of states | searchTask:search1.value | sorttask:path:order 
   ; let i=index"  >
 
   <td>{{state.taskname}}</td>

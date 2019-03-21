@@ -7,7 +7,7 @@
 </div>
 
         
-<h1 class="text-center">Add Task</h1>
+<h1 class="text-center">Add User</h1>
 <form>
     <div class="form">
       <div class="form-group col-md-6">
@@ -29,7 +29,7 @@
     </div>
       <button type="button" class="btn btn-success" 
 	  (click)="adduser(firstname.value,lastname.value,employeeid.value)"
-	  [routerLink]="['/home']" onClick="window.location.reload();"
+	  [routerLink]="['/home']" 
 	>Add</button> 
 	  
       <button type="reset" class="btn btn-warning" value=" Reset">Reset</button>
@@ -50,9 +50,9 @@
     </div>
     <div class="col">
 		<label for="sort">Sort  : </label>
-      <button type="button" class="btn btn-info">First Name</button>
-	  <button type="button" class="btn btn-info">Last Name</button>
-	   <button type="button" class="btn btn-info">Id</button>
+      <button><a href (click)="sortTable('firstname')">First Name</a></button>
+	  <button><a href (click)="sortTable('lastname')"> Last Name</a></button>
+	  <button><a href (click)="sortTable('employeeid')"> Id</a></button>
     </div>
 	
   </div>
@@ -67,20 +67,20 @@
   <table class="table ">
   <thead class="thead-dark">
   <tr>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Employee ID</th>
-      
+	  <th scope="col"> First Name</th>
+      <th scope="col"> Last Name</th>
+      <th scope="col"> Employee ID</th>          
       <th scope="col"> </th>
       <th scope="col"> </th>
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let user of users | userfirst:search1.value ; let i=index"  >
+  <tr *ngFor="let user of users | userfirst:search1.value | sortfirstname:path:order 
+  ; let i=index"  >
 
-  <td>{{user.firstname}}</td>
-  <td>{{user.lastname}}</td>
-  <td>{{user.employeeid}}</td> 
+  <td> {{user.firstname}}</td>
+  <td> {{user.lastname}}</td>
+  <td> {{user.employeeid}}</td> 
   
   <td>
 

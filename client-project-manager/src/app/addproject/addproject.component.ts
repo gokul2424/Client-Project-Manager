@@ -12,7 +12,8 @@ export class AddprojectComponent implements OnInit {
 	
 showhidedate: boolean;
  createForm: FormGroup;
- 
+ path: string[] = ['user'];
+  order: number = 1; // 1 asc, -1 desc;
 projects:Array<Object>=[];
   
   @Input('projectname') projectname:string=' ';
@@ -76,7 +77,11 @@ this.router.navigate(['home/'])
 		})
 }
   
-  
+  sortTable(prop: string) {
+    this.path = prop.split('.')
+    this.order = this.order * (-1); // change order
+    return false; // do not reload
+  } 
   
   updateproject(_id:string)
 {
