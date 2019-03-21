@@ -26,7 +26,7 @@ users:Array<Object>=[];
 updateuser(task_id:string,firstname:string,lastname:string,employeeid:number)
   {
     console.log(task_id)
-   this.http.put('http://localhost:7001/editusers/'+task_id,
+   this.http.put('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/editusers/'+task_id,
    {
     firstname:firstname,
     lastname:lastname,
@@ -36,5 +36,6 @@ updateuser(task_id:string,firstname:string,lastname:string,employeeid:number)
    .then(res=>{
        console.log(res)
        return res})
+	   this.router.navigate(['adduser/'])
 }
 }

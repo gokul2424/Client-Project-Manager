@@ -26,7 +26,7 @@ constructor(public http:HttpClient)
 }
 ngOnInit()
 {
-	this.http.get('http://localhost:7001/task')
+	this.http.get('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/task')
 		.toPromise()
 		.then(res=>
 		{
@@ -39,13 +39,13 @@ ngOnInit()
 
 endtask(taskname:string,priority:number,parenttask:string,startdate:string,enddate:string)
 {
-	this.http.put('http://localhost:7001/endtasks',
+	this.http.put('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/endtasks',
 	{
 		taskname:taskname,
 		priority:priority,
 		parenttask:parenttask,
 		startdate:startdate,
-		enddate:enddate,
+		enddate:enddate
 		
 	})
 		.toPromise()
@@ -62,7 +62,7 @@ endtask(taskname:string,priority:number,parenttask:string,startdate:string,endda
 
 updatetask(taskname:string,priority:number,parenttask:string,startdate:string,enddate:string){
         
-	this.http.put('http://localhost:7001/edittasks',
+	this.http.put('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/edittasks',
 	{
 	  taskname:taskname,
 	  priority:priority,

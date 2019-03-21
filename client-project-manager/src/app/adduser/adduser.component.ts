@@ -25,7 +25,7 @@ export class AdduserComponent implements OnInit {
   adduser(firstname:string,lastname:string,employeeid:number)
   {
     
-   this.http.post('http://localhost:7001/users',
+   this.http.post('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/users',
    {
     firstname:firstname,
     lastname:lastname,
@@ -35,6 +35,7 @@ export class AdduserComponent implements OnInit {
    .then(res=>{
        console.log(res)
        return res})
+	   this.router.navigate(['home/'])
 }
  
  
@@ -43,7 +44,7 @@ export class AdduserComponent implements OnInit {
  deleteuser(firstname:string)
   {
     
-   this.http.delete('http://localhost:7001/employees/'+firstname)
+   this.http.delete('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/employees/'+firstname)
    .toPromise()
    .then(res=>{
        console.log(res)
@@ -61,7 +62,7 @@ updateuser(_id:string)
   
   ngOnInit() {
 	  
-	  this.http.get('http://localhost:7001/user')
+	  this.http.get('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/user')
 		.toPromise()
 		.then(res=>
 		{

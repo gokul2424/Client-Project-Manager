@@ -33,9 +33,10 @@
           <input type="date" #enddate class="form-control" id="enddate">
       </div> 
     </div>
-      <button type="button" class="btn btn-success" onClick="window.location.reload();"  
-      onClick="window.location.reload()" [routerLink]="['/home']"
-      (click)="addtask(taskname.value,priority.value,parenttask.value,startdate.value,enddate.value)">Add Task</button>  
+      <button type="button" class="btn btn-success"  
+     
+      (click)="addtask(taskname.value,priority.value,parenttask.value,startdate.value,enddate.value)"
+	    [routerLink]="['/home']">Add Task</button>  
       <button type="reset" class="btn btn-warning" value=" Reset">Reset</button>
     
 

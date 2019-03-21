@@ -27,9 +27,10 @@
   
        
     </div>
-      <button type="button" class="btn btn-success" onClick="window.location.reload();"  
-      onClick="window.location.reload()" [routerLink]="['/home']"
-      (click)="adduser(firstname.value,lastname.value,employeeid.value)">Add</button> 
+      <button type="button" class="btn btn-success" 
+	  (click)="adduser(firstname.value,lastname.value,employeeid.value)"
+	  [routerLink]="['/home']" onClick="window.location.reload();"
+	>Add</button> 
 	  
       <button type="reset" class="btn btn-warning" value=" Reset">Reset</button>
     

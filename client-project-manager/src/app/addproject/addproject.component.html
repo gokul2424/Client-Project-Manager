@@ -51,6 +51,45 @@
       <button type="reset" class="btn btn-warning" value=" Reset">Reset</button>
   
   </form>
+  
+  
+  
+<hr>
+<br>
+<hr>
 
 
+<div class="row">
 
+  <table class="table ">
+  <thead class="thead-dark">
+  <tr>
+      <th scope="col">Task Name</th>
+      <th scope="col">Priority</th>
+       <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col"> </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let project of projects ; let i=index"  >
+
+  <td>{{project.projectname}}</td>
+  <td>{{project.priority}}</td>
+  <td>{{project.startdate}}</td>
+  <td>{{project.enddate}}</td>
+  <td>
+
+	
+	  <button type="button" class="btn btn-dark" [disabled]="!project.flag"
+      (click)="updateproject(project._id)" >Update</button>
+  
+    <button type="button" class="btn btn-success"  
+     (click)="endproject(project.projectname,project.priority,project.startdate,project.enddate)" 
+	 >SUSPEND</button>
+
+	 </td>
+  </tr>
+  </tbody>
+  </table>
+</div>

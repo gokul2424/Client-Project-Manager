@@ -26,10 +26,10 @@ export class AddtaskComponent implements OnInit {
     priority:number,
     parenttask:string,
     startdate:string,
-    enddate:string,
+    enddate:string
     ){
     
-   this.http.post('http://localhost:7001/tasks',
+   this.http.post('http://ec2-54-152-23-16.compute-1.amazonaws.com:7001/tasks',
    {
      taskname:taskname,
     priority:priority,

@@ -74,8 +74,9 @@
       [routerLink]="['/updatetask']"  >UPDATE</button></td>
 	  
   <td>
-    <button type="button" class="btn btn-success"  onClick="window.location.reload()"
-     (click)="endtask(state.taskname,state.priority,state.parenttask,state.startdate,state.enddate)">END</button>
+    <button type="button" class="btn btn-success"  
+     (click)="endtask(state.taskname,state.priority,state.parenttask,state.startdate,state.enddate)" 
+	 >END</button>
 
 	 </td>
   </tr>

@@ -7,7 +7,7 @@
 </div>
   
 <h1 class="text-center">Update Task</h1>
-<h1 class="text-center">Add Task</h1>
+
 <form>
     <div class="form">
       <div class="form-group col-md-6">
@@ -27,8 +27,9 @@
   
        
     </div>
-      <button type="button" class="btn btn-success" onClick="window.location.reload()" [routerLink]="['/home']"
-      (click)="updateuser(task_id,firstname.value,lastname.value,employeeid.value)">Update</button> 
+      <button type="button" class="btn btn-success" 
+      (click)="updateuser(task_id,firstname.value,lastname.value,employeeid.value)"
+	  [routerLink]="['/home']">Update</button> 
 	  
       <button type="reset" class="btn btn-warning" value=" Reset">Reset</button>
     

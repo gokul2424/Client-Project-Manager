@@ -16,7 +16,7 @@ const routes: Routes = [
 { path: 'updatetask', component: UpdatetaskComponent },
 
 { path: 'addproject', component: AddprojectComponent },
-{ path: 'updateproject', component: UpdateprojectComponent },
+{ path: 'updateproject/:id', component: UpdateprojectComponent },
 
 { path: 'adduser', component: AdduserComponent },
 { path: 'updateuser/:id', component: UpdateuserComponent },
