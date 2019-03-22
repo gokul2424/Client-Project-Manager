@@ -1,5 +1,6 @@
-import { Component ,OnInit,Input} from '@angular/core';
+import { Component ,OnInit,Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UpdateprojectComponent implements OnInit {
 
 projects:Array<Object>=[];
-  
+  showhidedate: boolean;
   @Input('projectname') projectname:string=' ';
   @Input('priority') priority:number=0;
   @Input('startdate') startdate:string=' ';
